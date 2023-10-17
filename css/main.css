@@ -1,0 +1,95 @@
+:root{
+    --primary-color: tomato;
+    --secondary-color: aqua;
+    --light-color: white;
+    --dark-color: black;
+    --body-font: Arial, Helvetica, sans-serif;
+    --headings-font: Courier;
+}
+body{
+    font-family: var(--body-font);
+}
+h1,h2,h3{
+    font-family: var(--headings-font);
+}
+.container{
+    max-width: 900px;
+    margin: 0 auto;
+}
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+}
+nav ul li{
+    flex: 1;
+
+}
+/* LoVe HAte (Link, Visited, Hover, Active) */
+nav li a,
+nav li a:link,
+nav li a:visited{
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--primary-color) ;
+    transition: transform .5s;
+}
+nav li a:hover,
+nav li a:focus{
+    transform: scale(1.4);
+    text-decoration: underline;
+}
+nav li a:active{
+    transition-duration: .2s;
+    transform: scale(1.4) translateX(10px);
+}
+
+/* > is child combinator */
+main > p{
+    font-size: 1.25rem;
+}
+/* + is adjacent combinator */
+h2 + p{
+    padding: 1rem;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+/* ~ is sibling combinator */
+.stars span{
+    cursor: pointer;
+    transition: opacity .5s;
+}
+.stars span:hover ~ span{
+    opacity: .4;
+}
+a[href="#"]{
+    border: 1px solid var(--primary-color);
+}
+a[href$=".pdf"]{
+    display: block;
+    border-left: 8px solid var(--secondary-color);
+    width: calc(100% - 3rem - 8px);
+    background-color: var(--primary-color);
+    padding: 1rem;
+    margin: .5rem;
+    color: var(--light-color);
+}
+a[href$=".pdf"]::after{
+    content: "\2193";
+    font-weight: bolder;
+    font-size: 1.25rem;
+
+}
+h2 + p::first-line{
+    color: var(--secondary-color);
+}
+h3 + p::first-letter{
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    padding: .5rem;
+    margin-right: .1rem;
+    font-size: 1.25rem;
+}
